@@ -1,0 +1,41 @@
+# vim:ft=zsh:
+export ZSH=$HOME/.oh-my-zsh
+
+ZSH_THEME="robbyrussell"
+
+DISABLE_AUTO_UPDATE="true"
+
+# Set fzf installation directory path
+export FZF_BASE="$HOME/.fzf"
+
+# Set ag as the default source for fzf (so .gitignore is enforced)
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# oh-my-zsh plugins
+plugins=(vi-mode git yarn npm tmux colored-man-pages nvm fzf)
+
+source $ZSH/oh-my-zsh.sh
+
+[[ -e "$HOME/.theme" && -z "$THEME_SET" ]] && . "$HOME/.theme"
+[[ -e "$HOME/.chezmoi" ]] && export PATH="$HOME/.chezmoi:$PATH"
+
+# User configuration
+export PATH="/opt/go/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export MANPATH="/usr/local/man:$MANPATH"
+
+export GOPATH="$HOME/projects/go-projects"
+export PATH="$GOPATH/bin:$PATH"
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+export EDITOR=nvim
+
+# alias vim to nvim
+alias vim=nvim
+
+umask 022
+
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export PATH="/opt/vagrant/bin:$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
