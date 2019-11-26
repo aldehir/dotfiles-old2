@@ -1,7 +1,14 @@
 set nocompatible
 filetype off
 
-call plug#begin('~/.local/share/nvim/plugged')
+let s:plugin_dir = '~/.vim/plugged'
+if $OFFLINE
+  let s:plugin_dir = '~/.vim-plugins'
+elseif has('nvim')
+  let s:plugin_dir = stdpath('data') . '/plugged'
+endif
+
+call plug#begin(s:plugin_dir)
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -11,17 +18,11 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mattn/emmet-vim'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
-Plug 'elixir-lang/vim-elixir'
-Plug 'ledger/vim-ledger'
 Plug 'godlygeek/tabular'
 Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf.vim'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
 call plug#end()
 
 filetype plugin indent on
