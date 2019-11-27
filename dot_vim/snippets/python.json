@@ -1,0 +1,12 @@
+{
+  "Skeleton File": {
+    "prefix": ["skel"],
+    "body": [
+      "# -*- coding: utf-8 -*-",
+      "from __future__ import print_function, absolute_import",
+      "",
+      "$0"
+    ],
+    "description": "Python Skeleton File"
+  }
+}
