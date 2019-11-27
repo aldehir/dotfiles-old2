@@ -41,5 +41,7 @@
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     }
-  }
+  },
+
+  "snippets.textmateSnippetsRoots": ["~/.vim/snippets"]
 }
