@@ -129,7 +129,7 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>rf <Plug>(coc-format-selected)
 nmap <leader>rf <Plug>(coc-format-selected)
 
-function s:tab_completion()
+function! s:tab_completion()
   if pumvisible() && !empty(v:completed_item)
     " Accept the menu item if one is selected
     return "\<C-y>"
