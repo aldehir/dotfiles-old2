@@ -1,14 +1,7 @@
 set nocompatible
 filetype off
 
-let s:plugin_dir = '~/.vim/plugged'
-if $OFFLINE
-  let s:plugin_dir = '~/.vim-plugins'
-elseif has('nvim')
-  let s:plugin_dir = stdpath('data') . '/plugged'
-endif
-
-call plug#begin(s:plugin_dir)
+call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
