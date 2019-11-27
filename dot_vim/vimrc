@@ -128,3 +128,19 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>rf <Plug>(coc-format-selected)
 nmap <leader>rf <Plug>(coc-format-selected)
+
+function s:tab_completion()
+  if pumvisible() && !empty(v:completed_item)
+    " Accept the menu item if one is selected
+    return "\<C-y>"
+  endif
+
+  if coc#expandableOrJumpable()
+    " If the word at the cursor is expandable, then expand it
+    return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])\<CR>"
+  end
+
+  return "\<TAB>"
+endfunction
+
+inoremap <silent><expr> <TAB> <SID>tab_completion()
