@@ -81,13 +81,6 @@ set nowritebackup
 set nowb
 set noswapfile
 
-if has("termguicolors")
-  set termguicolors
-endif
-
-set background=dark
-colorscheme dracula
-
 autocmd FileType ruby,javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType java,python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType javscript,typescript,json setlocal tw=120
@@ -97,7 +90,20 @@ autocmd BufNewFile,BufRead *.ino setlocal filetype=c
 nmap <silent> <leader>n :nohlsearch<cr>
 nmap <silent> <leader>s :set list!<cr>
 
-" Airline Settings
+" Theme
+if has("termguicolors")
+  set termguicolors
+endif
+
+set background=dark
+colorscheme dracula
+
+if g:colors_name == 'dracula'
+  " Identifiers are not special in dracula theme, so assign them a different
+  " color for certain file types.
+  autocmd FileType yaml hi! link Identifier DraculaGreen
+end
+
 let g:airline_theme = 'dracula'
 let g:airline_powerline_fonts = 1
 
