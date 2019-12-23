@@ -102,14 +102,15 @@ if g:colors_name == 'dracula'
   " Identifiers are not special in dracula theme, so assign them a different
   " color for certain file types.
   autocmd FileType yaml hi! link Identifier DraculaGreen
+  autocmd FileType yaml.ansible hi! link YamlConstant Keyword
 end
 
 let g:airline_theme = 'dracula'
 let g:airline_powerline_fonts = 1
 
-" Use Ctrl-P for FZF
-nnoremap <C-p> :Files<CR>
-inoremap <C-p> <ESC>:Files<CR>
+" FZF mappings
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 " coc.nvim settings
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
