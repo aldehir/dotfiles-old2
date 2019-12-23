@@ -85,7 +85,10 @@ autocmd FileType ruby,javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 e
 autocmd FileType java,python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType javscript,typescript,json setlocal tw=120
 autocmd BufNewFile,BufRead *.handlebars,*.html.erb setlocal filetype=html
+autocmd BufNewFile,BufRead *.ldif.j2 setlocal filetype=ldif.jinja2
 autocmd BufNewFile,BufRead *.ino setlocal filetype=c
+autocmd BufNewFile,BufRead *.ui setlocal filetype=xml.ui foldmethod=marker
+autocmd BufNewFile,BufRead *.gjs setlocal filetype=javascript
 
 nmap <silent> <leader>n :nohlsearch<cr>
 nmap <silent> <leader>s :set list!<cr>
