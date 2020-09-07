@@ -1,4 +1,8 @@
 {
+  "suggest.enablePreview": true,
+  "suggest.floatEnable": true,
+  "suggest.enablePreselect": true,
+  "suggest.noselect": false,
   "suggest.triggerAfterInsertEnter": true,
   "suggest.completionItemKindLabels": {
 		"keyword": "\uf1de",

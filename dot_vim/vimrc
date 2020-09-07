@@ -84,6 +84,7 @@ set noswapfile
 autocmd FileType ruby,javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType java,python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType javscript,typescript,json setlocal tw=120
+autocmd FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 autocmd BufNewFile,BufRead *.handlebars,*.html.erb setlocal filetype=html
 autocmd BufNewFile,BufRead *.ldif.j2 setlocal filetype=ldif.jinja2
 autocmd BufNewFile,BufRead *.ino setlocal filetype=c
@@ -140,17 +141,25 @@ xmap <leader>rf <Plug>(coc-format-selected)
 nmap <leader>rf <Plug>(coc-format-selected)
 
 function! s:tab_completion()
-  if pumvisible() && !empty(v:completed_item)
-    " Accept the menu item if one is selected
+  let info = complete_info(['pum_visible', 'items', 'selected'])
+
+  if info.pum_visible && (info.selected >= 0 || len(info.items) == 1)
     return "\<C-y>"
   endif
+
+  "if pumvisible()
+  "  if !empty(v:completed_item)
+  "    " Accept the menu item if one is selected
+  "    return "\<C-y>"
+  "  endif
+  "endif
 
   if coc#expandableOrJumpable()
     " If the word at the cursor is expandable, then expand it
     return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])\<CR>"
   end
 
-  return "\<TAB>"
+  return "\<C-g>u\<TAB>"
 endfunction
 
 inoremap <silent><expr> <TAB> <SID>tab_completion()
